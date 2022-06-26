@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta group="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Cartas</title>
+    <script defer src="./js/main.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex justify-content-center my-4">
+                <h1>Juego de Cartas</h1>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Instrucciones</h3>
+            <span>Se trata de un juego de memoria en el que cada carta tiene su pareja.</span>
+            <span>Debes encontrar todas las parejas.</span>
+            <span>Tienes 5 oportunidades.</span>
+        </div>
+        <div class="row my-5 d-flex">
+            <div class="row cartas w-75 m-auto">
+                <div group='1' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="voltearArriba(this)">
+                </div>
+                <div group='1' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="voltearArriba(this)">
+                </div>
+                <div group='2' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="voltearArriba(this)">
+                </div>
+                <div group='2' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="voltearArriba(this)">
+                </div>
+                <div group='3' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="voltearArriba(this)">
+                </div>
+                <div group='3' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="voltearArriba(this)">
+                </div>
+                <div group='4' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="voltearArriba(this)">
+                </div>
+                <div group='4' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="voltearArriba(this)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar text-white fixed-bottom bg-primary d-flex justify-content-around">
+            <b>Alumno:</b><span>Julian Mojico</span>
+            <span>julian.mojico@davinci.edu.ar</span>
+    </div>
+</body>
+
+</html>
