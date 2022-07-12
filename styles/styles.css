@@ -1,0 +1,81 @@
+.shake {
+    animation-name: shakeAnim;
+    animation-duration: 0.2s;
+    animation-iteration-count: 2;
+}
+
+@keyframes shakeAnim {
+    0% {
+        background: red;
+    }
+
+    25% {
+        background: rgba(255, 0, 0, 0.532);
+        transform: rotate(-10deg);
+    }
+
+
+    50% {
+        background: rgba(238, 82, 82, 0.532);
+        transform: rotate(10deg);
+    }
+
+    75% {
+        background: rgb(255, 111, 8);
+        transform: rotate(-10deg);
+    }
+
+
+    100% {
+        background: red;
+        transform: rotate(0deg);
+    }
+}
+
+.success {
+    position: relative;
+    /* border: 5px solid var(--bs-success); */
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.success:before {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#ffffff, #51e979, #ffffff);
+    animation: successAnim 3s;
+    animation-timing-function: cubic-bezier(.4,.27,.99,.39);
+}
+	
+.success:after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 6px;
+		top: 6px;
+		width: calc(100% - 12px);
+		height: calc(100% - 12px);
+		background: white;
+		border-radius: 5px;
+	}
+
+@keyframes successAnim {
+    0% {
+        background-image: #51e979;
+    }
+
+    100%{
+        background-image: #51e979;
+        transform: rotate(8turn);
+    }
+}

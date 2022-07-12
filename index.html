@@ -8,6 +8,7 @@
     <title>Juego de Cartas</title>
     <script defer src="./js/main.js"></script>
     <!-- CSS only -->
+    <link href="./styles/styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
@@ -20,43 +21,50 @@
             </div>
         </div>
         <div class="row">
-            <h3>Instrucciones</h3>
-            <span>Se trata de un juego de memoria en el que cada carta tiene su pareja.</span>
-            <span>Debes encontrar todas las parejas.</span>
-            <span>Tienes 5 oportunidades.</span>
+            <div class="col-6">
+                <h3>Instrucciones</h3>
+                <span>Se trata de un juego de memoria en el que cada carta tiene su pareja.</span>
+                <span>Debes encontrar todas las parejas.</span>
+            </div>
+            <div class="col-6">
+                <h3>Intentos</h3>
+                <div class="intentos">
+                    <span class="badge text-bg-primary">Primary</span>
+                </div>
+            </div>
         </div>
         <div class="row my-5 d-flex">
             <div class="row cartas w-75 m-auto">
-                <div group='1' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
-                    onclick="voltearArriba(this)">
-                </div>
-                <div group='1' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
-                    onclick="voltearArriba(this)">
-                </div>
-                <div group='2' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
-                    onclick="voltearArriba(this)">
-                </div>
-                <div group='2' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
-                    onclick="voltearArriba(this)">
-                </div>
-                <div group='3' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
-                    onclick="voltearArriba(this)">
-                </div>
-                <div group='3' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
-                    onclick="voltearArriba(this)">
-                </div>
-                <div group='4' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
-                    onclick="voltearArriba(this)">
-                </div>
-                <div group='4' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
-                    onclick="voltearArriba(this)">
-                </div>
+                <a href="#" group='1' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="mostrarCarta(this)">
+                </a>
+                <a href="#" group='1' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="mostrarCarta(this)">
+                </a>
+                <a href="#" group='2' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="mostrarCarta(this)">
+                </a>
+                <a href="#" group='2' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="mostrarCarta(this)">
+                </a>
+                <a href="#" group='3' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="mostrarCarta(this)">
+                </a>
+                <a href="#" group='3' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="mostrarCarta(this)">
+                </a>
+                <a href="#" group='4' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="mostrarCarta(this)">
+                </a>
+                <a href="#" group='4' class="card m-3 bg-primary" style="width: 10rem; height: 10rem;"
+                    onclick="mostrarCarta(this)">
+                </a>
             </div>
         </div>
     </div>
     <div class="navbar text-white fixed-bottom bg-primary d-flex justify-content-around">
-            <b>Alumno:</b><span>Julian Mojico</span>
-            <span>julian.mojico@davinci.edu.ar</span>
+        <b>Alumno:</b><span>Julian Mojico</span>
+        <span>julian.mojico@davinci.edu.ar</span>
     </div>
 </body>
 

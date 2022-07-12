@@ -1,6 +1,11 @@
-oportunidades = 5;
+intentos = 5;
+intentosElem = document.querySelector('.intentos');
 cartasVolteadas = [];
 cartasPorAcertar = document.querySelector('.cartas').childElementCount;
+habilitado = true;
+
+intentosElem.innerHTML = intentos;
+cantidadParesCarta = 4;
 
 function esAcierto(grupoDeCartas) {
 
@@ -10,51 +15,79 @@ function esAcierto(grupoDeCartas) {
     return (grupoCartaUno == grupoCartaDos);
 }
 
-function voltearAbajo() {
+function ocultarCarta() {
+    habilitado = false;
     setTimeout(function () {
         for (i = 0; i < cartasVolteadas.length; i++) {
             cartasVolteadas[i].innerHTML = ''
         }
         cartasVolteadas = [];
+        habilitado = true;
     }
-        , 3000)
+        , 2000)
 }
 
+function mostrarNoHabilitado(carta) {
+    numeroDeGrupo = carta.getAttribute('group');
+    carta.classList.add('bg-danger');
+    carta.classList.add('shake');
+    setTimeout(() => {
+        carta.classList.remove('shake');
+        carta.classList.remove('bg-danger');
+    }, 1000)
+}
 
-function voltearArriba(carta) {
+function mostrarAcierto(cartasVolteadas) {
+    for (carta of cartasVolteadas){
+    carta.classList.remove('bg-primary');
+    carta.classList.add('success');
+    mostrarImagen(carta);
+}
+}
+
+function mostrarImagen(carta) {
+    numeroDeGrupo = carta.getAttribute('group');
+    carta.innerHTML = '<img class="card-img-top" style="height:100%; object-fit: cover; width: 100%;" src="./img/grupo' + numeroDeGrupo + '.jpeg">';
+}
+
+function mostrarCarta(carta) {
 
     cartasVolteadas.push(carta);
-    numeroDeGrupo = carta.getAttribute('group');
 
+    if (!habilitado) {
+        mostrarNoHabilitado(carta);
+        return;
+    }
 
     if (cartasVolteadas.length == 2) {
 
         if (esAcierto(cartasVolteadas)) {
             console.log("ACIERTO");
-            carta.innerHTML = '<img class="card-img-top" style="height:100%; object-fit: cover; width: 100%;" src="./img/grupo' + numeroDeGrupo + '.jpeg">';
+            mostrarAcierto(cartasVolteadas)
             cartasVolteadas = [];
             cartasPorAcertar = cartasPorAcertar - 2;
 
         } else {
             console.log("FRACASO");
-            carta.innerHTML = '<img class="card-img-top" style="height:100%; object-fit: cover; width: 100%;" src="./img/grupo' + numeroDeGrupo + '.jpeg">';
-            voltearAbajo()
-            oportunidades--;
+            mostrarImagen(carta);
+            ocultarCarta()
+            intentos--;
+            intentosElem.innerHTML = intentos;
         }
 
     } else {
         console.log("RESTA DAR VUELTA OTRA CARTA");
-        carta.innerHTML = '<img class="card-img-top"  style="height:100%; object-fit: cover; width: 100%;" src="./img/grupo' + numeroDeGrupo + '.jpeg">';
+        mostrarImagen(carta);
     }
 
     if (cartasPorAcertar == 0) {
         document.querySelector('.cartas').innerHTML = '<h1>Ganador<h2>';
     }
 
-    if (oportunidades <= 0) {
+    if (intentos <= 0) {
         document.querySelector('.cartas').innerHTML = '<h1>Perdiste<h2>';
     }
 
-    console.log('oportunidades restantes =' + oportunidades);
+    console.log('intentos restantes =' + intentos);
     console.log('cartas por acertar:' + cartasPorAcertar);
 }
