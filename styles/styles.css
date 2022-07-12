@@ -54,28 +54,33 @@
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
     background-image: linear-gradient(#ffffff, #51e979, #ffffff);
     animation: successAnim 3s;
-    animation-timing-function: cubic-bezier(.4,.27,.99,.39);
+    animation-timing-function: cubic-bezier(.4, .27, .99, .39);
 }
-	
+
 .success:after {
-		content: '';
-		position: absolute;
-		z-index: -1;
-		left: 6px;
-		top: 6px;
-		width: calc(100% - 12px);
-		height: calc(100% - 12px);
-		background: white;
-		border-radius: 5px;
-	}
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 5px;
+}
 
 @keyframes successAnim {
     0% {
         background-image: #51e979;
     }
 
-    100%{
+    100% {
         background-image: #51e979;
         transform: rotate(8turn);
     }
+}
+
+a.card {
+    width: 10rem;
+    height: 10rem;
 }

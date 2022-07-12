@@ -1,11 +1,12 @@
+cartasPorAcertar = 10;
+arrayRandomizador = Array.from({length: (cartasPorAcertar/2)}, (v, i) => i);
+arrayRandomizador = arrayRandomizador.concat(arrayRandomizador);
+arrayRandomizador = arrayRandomizador.sort( () => .5 - Math.random() );
+
 intentos = 5;
 intentosElem = document.querySelector('.intentos');
 cartasVolteadas = [];
-cartasPorAcertar = document.querySelector('.cartas').childElementCount;
 habilitado = true;
-
-intentosElem.innerHTML = intentos;
-cantidadParesCarta = 4;
 
 function esAcierto(grupoDeCartas) {
 
@@ -50,8 +51,8 @@ function mostrarImagen(carta) {
     carta.innerHTML = '<img class="card-img-top" style="height:100%; object-fit: cover; width: 100%;" src="./img/grupo' + numeroDeGrupo + '.jpeg">';
 }
 
-function mostrarCarta(carta) {
-
+function mostrarCarta() {
+    carta = this;
     cartasVolteadas.push(carta);
 
     if (!habilitado) {
@@ -91,3 +92,25 @@ function mostrarCarta(carta) {
     console.log('intentos restantes =' + intentos);
     console.log('cartas por acertar:' + cartasPorAcertar);
 }
+
+
+function agregarCartas(){
+    parent = document.querySelector('.cartas')
+    for (var i = 0; i < arrayRandomizador.length ; i++){
+        anchor = document.createElement('a')
+        anchor.classList.add("card")
+        anchor.classList.add("m-3")
+        anchor.classList.add("bg-primary")
+        anchor.addEventListener("click", mostrarCarta)
+        anchor.setAttribute('group', arrayRandomizador[i])
+        parent.appendChild(anchor);
+        // parent.write(`<a href="#" group="1" class="card m-3 bg-primary" style="width: 10rem; height: 10rem;" onclick="mostrarCarta(this)"></a>`);
+    }
+}
+
+
+agregarCartas();
+
+
+
+intentosElem.innerHTML = intentos;
