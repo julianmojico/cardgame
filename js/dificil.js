@@ -1,11 +1,11 @@
 
-cartasPorAcertar = 10;
+cartasPorAcertar = 20;
 
 arrayRandomizador = Array.from({length: (cartasPorAcertar/2)}, (v, i) => i);
 arrayRandomizador = arrayRandomizador.concat(arrayRandomizador);
 arrayRandomizador = arrayRandomizador.sort( () => .5 - Math.random() );
 
-intentos = 5;
+intentos = 3;
 intentosElem = document.querySelector('.intentos');
 cartasVolteadas = [];
 habilitado = true;
